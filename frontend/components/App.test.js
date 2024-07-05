@@ -53,5 +53,5 @@ test('form submission shows a success message', async () => {
   render(<AppFunctional />);
   fireEvent.change(screen.getByPlaceholderText(/type email/i), { target: { value: 'test@example.com' } });
   fireEvent.click(screen.getByText(/submit/i));
-  await screen.findByText(/success/i);
+  expect(await screen.findByText(/success/i)).toBeInTheDocument();
 });
