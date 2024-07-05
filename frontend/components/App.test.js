@@ -14,38 +14,38 @@ test('renders initial state correctly', () => {
   expect(screen.getByPlaceholderText(/type email/i)).toHaveValue('');
 });
 
-test('moving left from initial position shows error message', async () => {
+test('moving left from initial position shows error message', () => {
   render(<AppFunctional />);
   fireEvent.click(screen.getByText(/left/i));
-  expect(await screen.findByText(/you can't go left/i)).toBeInTheDocument();
+  expect(screen.getByText(/you can't go left/i)).toBeInTheDocument();
 });
 
-test('moving up from initial position shows error message', async () => {
+test('moving up from initial position shows error message', () => {
   render(<AppFunctional />);
   fireEvent.click(screen.getByText(/up/i));
-  expect(await screen.findByText(/you can't go up/i)).toBeInTheDocument();
+  expect(screen.getByText(/you can't go up/i)).toBeInTheDocument();
 });
 
-test('moving right from initial position works', async () => {
+test('moving right from initial position works', () => {
   render(<AppFunctional />);
   fireEvent.click(screen.getByText(/right/i));
-  expect(await screen.findByText(/coordinates \(2, 3\)/i)).toBeInTheDocument();
-  expect(await screen.findByText(/you moved 1 time/i)).toBeInTheDocument();
+  expect(screen.getByText(/coordinates \(2, 3\)/i)).toBeInTheDocument();
+  expect(screen.getByText(/you moved 1 time/i)).toBeInTheDocument();
 });
 
-test('moving down from initial position works', async () => {
+test('moving down from initial position works', () => {
   render(<AppFunctional />);
   fireEvent.click(screen.getByText(/down/i));
-  expect(await screen.findByText(/coordinates \(3, 2\)/i)).toBeInTheDocument();
-  expect(await screen.findByText(/you moved 1 time/i)).toBeInTheDocument();
+  expect(screen.getByText(/coordinates \(3, 2\)/i)).toBeInTheDocument();
+  expect(screen.getByText(/you moved 1 time/i)).toBeInTheDocument();
 });
 
-test('reset button works', async () => {
+test('reset button works', () => {
   render(<AppFunctional />);
   fireEvent.click(screen.getByText(/right/i));
   fireEvent.click(screen.getByText(/reset/i));
-  expect(await screen.findByText(/coordinates \(2, 2\)/i)).toBeInTheDocument();
-  expect(await screen.findByText(/you moved 0 times/i)).toBeInTheDocument();
+  expect(screen.getByText(/coordinates \(2, 2\)/i)).toBeInTheDocument();
+  expect(screen.getByText(/you moved 0 times/i)).toBeInTheDocument();
 });
 
 test('form submission shows a success message', async () => {
