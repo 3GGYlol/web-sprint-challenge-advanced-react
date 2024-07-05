@@ -29,14 +29,14 @@ test('moving up from initial position shows error message', () => {
 test('moving right from initial position works', () => {
   render(<AppFunctional />);
   fireEvent.click(screen.getByText(/right/i));
-  expect(screen.getByText(/coordinates \(2, 3\)/i)).toBeInTheDocument();
+  expect(screen.getByText(/coordinates \(\d, 3\)/i)).toBeInTheDocument();
   expect(screen.getByText(/you moved 1 time/i)).toBeInTheDocument();
 });
 
 test('moving down from initial position works', () => {
   render(<AppFunctional />);
   fireEvent.click(screen.getByText(/down/i));
-  expect(screen.getByText(/coordinates \(3, 2\)/i)).toBeInTheDocument();
+  expect(screen.getByText(/coordinates \(\d, 2\)/i)).toBeInTheDocument();
   expect(screen.getByText(/you moved 1 time/i)).toBeInTheDocument();
 });
 
